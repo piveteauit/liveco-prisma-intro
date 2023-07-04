@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "2a136399-a7cc-4ce6-ba81-b40aa94b9a2d",
+		"name": "LiveCo-Prisma",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Titi\",\n    \"lastname\": \"itit\",\n    \"age\": 5,\n    \"campus\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/students",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create campus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"city\": \"Bordeaux\",\n    \"adresse\": \"17 rue jenesaispas\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/campus",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"campus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/students",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gett all campus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/campus",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"campus"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:8000"
+		}
+	]
+}

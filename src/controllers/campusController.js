@@ -1,11 +1,11 @@
 const Joi = require("joi")
 
-const studentsDataAccess = require("../models/studentsDataAccess")
+const campusDataAccess = require("../models/campusDataAccess")
 
 exports.getAll = (req, res) => {
-  studentsDataAccess.findMany({
+  campusDataAccess.findMany({
     include: {
-      campus: true
+      student: true
     }
   })
     .then((results) => {
@@ -22,18 +22,19 @@ exports.getOne = (req, res) => {
 }
 
 exports.createOne = (req, res) => {
-  const { firstname, lastname, age, campus, remote } = req.body
+  // city    String    @db.VarChar(255)
+  // adresse String    @db.VarChar(255)
+  const { city, adresse } = req.body
 
-  studentsDataAccess.create({data: {
-    firstname,
-    lastname,
-    age,
-    campId: campus,
-    remote: remote || false
-  }})
-  .then((result) => {
-    res.status(201).json(result)
-  })
+  campusDataAccess.create({data: {city, adresse}})
+    .then((result) => {
+      res.status(201).json({city,adresse})
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    })
+
 }
 
 exports.updateOne = (req, res) => {
